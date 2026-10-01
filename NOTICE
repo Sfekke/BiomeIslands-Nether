@@ -1,0 +1,8 @@
+BiomeIslands-Nether
+Created by Sfekke.
+
+A separate sister project to BiomeIslands. Its biome-island concept is inspired by the classic
+IslandCraft Bukkit generator by Daniel Simmons and contributors:
+https://github.com/hoqhuuep/IslandCraft
+
+This project uses the public Bukkit/Paper API and contains no Mojang server code.

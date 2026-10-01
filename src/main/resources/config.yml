@@ -1,0 +1,75 @@
+# BiomeIslands-Nether 0.3.1
+# 0.3.1 is a 26.3 compatibility-only release; 0.2.0 terrain/layout generation is unchanged.
+# Commands: /biomeislandsnether or /bin. Permissions are declared in plugin.yml and default to op.
+# Generation settings should be treated as immutable after chunks exist.
+# Use a fresh world when tuning them.
+config-version: 0.3.1
+
+# Exclusive lava ceiling: 32 means the highest normal lava block is Y=31.
+lava-level: 32
+
+cavern:
+  # Average bottom of the preserved vanilla Nether ceiling. Broad noise makes the underside uneven.
+  ceiling-y: 98
+  ceiling-variation: 10
+
+lava-sea:
+  # Base floor below the connected lava sea. The floor itself remains solid; lava fills above it.
+  floor-y: 18
+  floor-variation: 5
+
+islands:
+  # Approximate spacing only. Placement is stochastic and heavily jittered; there is intentionally
+  # no visible grid. 0.2.0 is denser than 0.1.0 to reduce long dead stretches of lava.
+  average-spacing: 145
+  density: 0.82
+
+  # Secondary islands now spawn as loose satellites around a primary island, creating irregular
+  # clusters and shorter jumps without guaranteeing a route.
+  secondary-chance: 0.32
+
+  min-radius: 42
+  max-radius: 82
+
+  # Ground islands rise from the lava floor. Floating islands occupy an independent vertical band.
+  floating-chance: 0.34
+  ground-height: 42
+  floating-min-y: 52
+  floating-max-y: 78
+  floating-thickness: 25
+
+  # Low-frequency surface roughness. The Nether is intentionally allowed to be messier than
+  # BiomeIslands, but these values still keep individual landmasses recognizable.
+  horizontal-chaos: 0.19
+  height-variation: 7
+
+travel:
+  # Small irregular landmasses scattered through otherwise open lava gaps. Most rise only a short
+  # distance above the lava; some float low enough to create three-dimensional stepping routes.
+  # They are deliberately stochastic rather than guaranteed bridges.
+  stepping-islands: true
+  stepping-island-chance: 0.30
+  stepping-min-radius: 8
+  stepping-max-radius: 20
+
+vanilla-features:
+  caves: true
+  decorations: true
+  mobs: true
+  structures: true
+
+# Biome used in the open lava sea and the preserved ceiling away from an island.
+background-biome: minecraft:nether_wastes
+
+# Weighted Nether biome themes. Set weight: 0 to disable one.
+biomes:
+  - biome: minecraft:nether_wastes
+    weight: 1.30
+  - biome: minecraft:crimson_forest
+    weight: 1.00
+  - biome: minecraft:warped_forest
+    weight: 0.85
+  - biome: minecraft:soul_sand_valley
+    weight: 0.70
+  - biome: minecraft:basalt_deltas
+    weight: 0.65

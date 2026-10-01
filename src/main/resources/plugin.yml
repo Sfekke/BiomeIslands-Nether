@@ -1,0 +1,49 @@
+name: BiomeIslands-Nether
+version: '0.3.1'
+main: dev.biomeislandsnether.BiomeIslandsNetherPlugin
+description: Chaotic Nether archipelago generator with clustered biome islands, stepping stones and floating landmasses.
+api-version: '26.3'
+load: STARTUP
+author: Sfekke
+commands:
+  biomeislandsnether:
+    description: BiomeIslands-Nether information and administrative diagnostics.
+    aliases: [bin]
+    usage: /biomeislandsnether [info|version|help|status|here|biomes|stats|debug]
+permissions:
+  biomeislandsnether.admin:
+    description: Grants every BiomeIslands-Nether administrative command.
+    default: op
+    children:
+      biomeislandsnether.command.info: true
+      biomeislandsnether.command.version: true
+      biomeislandsnether.command.help: true
+      biomeislandsnether.command.status: true
+      biomeislandsnether.command.here: true
+      biomeislandsnether.command.biomes: true
+      biomeislandsnether.command.stats: true
+      biomeislandsnether.command.debug: true
+  biomeislandsnether.command.info:
+    description: View BiomeIslands-Nether plugin and creator information.
+    default: op
+  biomeislandsnether.command.version:
+    description: View the BiomeIslands-Nether version.
+    default: op
+  biomeislandsnether.command.help:
+    description: View BiomeIslands-Nether command help.
+    default: op
+  biomeislandsnether.command.status:
+    description: View active BiomeIslands-Nether generator settings.
+    default: op
+  biomeislandsnether.command.here:
+    description: Inspect the Nether landmass/lava region at your current position.
+    default: op
+  biomeislandsnether.command.biomes:
+    description: View enabled weighted Nether biomes.
+    default: op
+  biomeislandsnether.command.stats:
+    description: View local BiomeIslands-Nether generation counters.
+    default: op
+  biomeislandsnether.command.debug:
+    description: View detailed BiomeIslands-Nether layout diagnostics.
+    default: op
